@@ -1,7 +1,7 @@
 <template>
 <!-- 子组件 -->
   <div>
-    <p>这是子组件{{num}}</p>
+    <p>这是子组件{{test}}</p>
     <button @click="hdClick">button</button>
   </div>
 </template>
@@ -9,7 +9,7 @@
 <script lang="ts" setup>
 import{} from 'vue'
     defineProps({
-      num:{
+      test:{
         type:Number,
         default:20
       }  

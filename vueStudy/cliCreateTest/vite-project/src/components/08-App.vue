@@ -3,8 +3,8 @@
   <div>
     <p>{{db1}}</p>
     <button @click="num++">button</button>
-    <p>{{db2}}</p>
-    <button @click="objRet.num1++">button</button>
+    <!-- <p>{{db2}}</p>
+    <button @click="objRet.num1++">button</button> -->
   </div>
 </template>
 
@@ -15,7 +15,7 @@ import{ref,reactive,computed} from 'vue'
 let num = ref(10);
 let db1 = computed(()=>{
     return num.value * 2
-})
+}) 
 
 //对象用计算属性
 let obj = {
@@ -28,4 +28,5 @@ let db2 = computed(()=>{
 </script>
 
 <style lang="less" scoped>
+
 </style>

@@ -2,7 +2,7 @@
 <!-- 父组件 -->
   <div>
     <p>这是父组件</p>
-    <Child :num="xx" @fn="chanNum"></Child>
+    <Child :test="xx" @fn="chanNum"></Child>
   </div>
 </template>
 
