@@ -24,9 +24,12 @@
 
 <script lang="ts" setup>
 import { reactive, toRefs, ref } from 'vue'
-import { adminLoginApi } from '../../request/api'
+import { adminLoginApi, getAdminInfoApi } from '../../request/api'
 import { User,Key} from '@element-plus/icons-vue'
 import Cookie from 'js-cookie'
+import { useRouter } from 'vue-router';
+
+let router = useRouter();
 
 const state = reactive({
   ruleForm: {
@@ -70,7 +73,13 @@ const loginFn = () => {
     }).then(res => {
       if(res.code === 200){
         //引入第三方库cookie，先存储token,expires:7过期时间
-        Cookie.set('token',res.data.tokenHead + res.data.token,{ expires: 7})
+        Cookie.set('token',res.data.tokenHead + res.data.token,{ expires: 7});
+        //获取用户信息
+        getAdminInfoApi().then(res =>{
+          if(res.code === 200){
+            router.push('/homepage')
+          }
+        })
       }
     })
   }).catch(() => {

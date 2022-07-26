@@ -1,16 +1,26 @@
 import request from './request'
 
-interface AdminLoginData{
-    username:string,
-    password:string
+//用类型别名简化Promise
+type PromiseRes<T> = Promise<ManageResult<T>>
+
+interface AdminLoginData {
+    username: string,
+    password: string
 }
 //登录返回token
-interface AdminLoginRes{
-    code:number,
-    data:{
-        token:string,
-        tokenHead:string
-    };
-    message:string
+interface ManageResult<T> {
+    code: number,
+    data: T
+    // message: string
 }
-export const adminLoginApi= (data:AdminLoginData):Promise<AdminLoginRes> => request.post('/admin/login',data)
+//登陆的返回接口
+interface AdminLoginRes{
+    token: string;
+    tokenHead: string
+}
+//当前的用户信息
+interface AdminInfoRes{
+    menus: []
+}
+export const adminLoginApi = (data: AdminLoginData): PromiseRes<AdminLoginRes> => request.post('/admin/login', data)
+export const getAdminInfoApi = (): PromiseRes<AdminInfoRes> => request.get('/admin/info')
