@@ -15,5 +15,20 @@ export default defineConfig({
     Components({
       resolvers: [ElementPlusResolver()],
     })
-  ]
+  ],
+  server: {
+    port: 9999,
+    // 是否自动在浏览器打开
+    open: true,
+    // 是否开启 https
+    https: false,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8080/',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
+  }
+
 })

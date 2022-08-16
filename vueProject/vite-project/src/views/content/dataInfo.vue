@@ -1,5 +1,7 @@
 <template>
-    <router-view></router-view>
+  <div>
+    <p>这是一个data组件</p>
+  </div>
 </template>
 
 <script lang="ts" setup>

@@ -1,7 +1,9 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 const instance = axios.create({
-    baseURL: 'http://120.24.64.5:8088/mall-admin',
+    // baseURL: 'http://120.24.64.5:8088/mall-admin',
+    // baseURL: 'http://localhost:8080',
+    baseURL: '/api',
     timeout:15000
 });
 
@@ -11,7 +13,7 @@ instance.interceptors.request.use(config =>{
     if(token){
         //如果config.headers不为空就等于自己，不然赋值为空对象
         config.headers = config.headers || {}
-        config.headers.Authorization = token
+        config.headers.token = token
     }
     return config;
 }, err => {

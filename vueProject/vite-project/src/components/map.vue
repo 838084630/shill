@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <div class="map">
         <GoogleMap api-key="AIzaSyDtEkIrqha2O_XqYl52N6xDsKVu-0Adbag" style="width: 100%; height: 500px" :center="center"
             :zoom="15">
@@ -17,8 +17,8 @@ const center = {
 </script>
 
 
-<style>
+<style scoped>
 .map {
     width: 500px;
 }
-</style>
+</style> -->
